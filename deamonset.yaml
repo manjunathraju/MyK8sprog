@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: javawebapps
+spec: 
+  selector:
+    matchLabels:
+     app: javawebapp
+  template:
+    metadata:
+      name: javawebappod
+      labels:
+        app: javawebapp
+    spec:
+      containers:
+      - name: javawebappcontainer
+        image: dockerhandson/java-web-app
+        ports:
+        - containerPort: 8080
